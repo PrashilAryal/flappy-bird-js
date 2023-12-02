@@ -1,0 +1,9 @@
+body {
+  background-color: slateblue;
+  display: flex;
+  justify-content: center;
+}
+canvas {
+  border: 1px solid white;
+  border-radius: 5px;
+}
