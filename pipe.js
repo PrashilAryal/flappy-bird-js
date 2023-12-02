@@ -40,12 +40,26 @@ class Pipe {
   }
 
   collisionWithBird() {
+    // Pipe Above
     if (
       this.position.x <= bird.position.x + bird.size.width &&
       this.position.x + this.size.width >= bird.position.x &&
-      this.position.y + this.size.height <= bird.position.y
+      this.position.y <= bird.position.y + bird.size.height &&
+      this.position.y + this.size.height >= bird.position.y
     ) {
-      console.log("collision");
+      console.log("collision: UP");
+    }
+
+    // Pipe Below
+    if (
+      this.position.x <= bird.position.x + bird.size.width &&
+      this.position.x + this.size.width >= bird.position.x &&
+      this.position.y + this.size.height + 150 <=
+        bird.position.y + bird.size.height &&
+      this.position.y + this.size.height + 150 + this.size.height >=
+        bird.position.y
+    ) {
+      console.log("collision: DOWN");
     }
   }
   update() {
