@@ -13,11 +13,14 @@ class Background {
       y: 0,
     };
     this.color = color;
+    this.img = new Image();
+    this.img.src = "./images/background.png";
   }
 
   draw() {
     c.fillStyle = this.color;
-    c.fillRect(
+    c.drawImage(
+      this.img,
       this.position.x,
       this.position.y,
       this.size.width,
@@ -34,6 +37,8 @@ class Background {
   }
   update() {
     this.draw();
-    this.move();
+    if (bird.isAlive) {
+      this.move();
+    }
   }
 }

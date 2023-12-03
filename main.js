@@ -7,9 +7,11 @@ const bird = new Bird();
 const pipe = new Pipe();
 
 const allPipes = [];
+let gameScore = 0;
 
-setInterval(() => {
+const gameInterval = setInterval(() => {
   // allPipes = push(new Pipe());
+  gameScore++;
 }, 1000);
 
 function animate() {
@@ -18,6 +20,15 @@ function animate() {
   background2.update();
   bird.update();
   pipe.update(bird);
+
+  c.beginPath();
+  c.fillStyle = "white";
+  c.font = "30px sans serif";
+  c.fillText(gameScore, 10, 40);
+
+  if (!bird.isAlive) {
+    clearInterval(gameInterval);
+  }
   window.requestAnimationFrame(animate);
 }
 animate();
@@ -25,7 +36,9 @@ animate();
 document.addEventListener("keydown", (event) => {
   if (event.code === "Space") {
     // bird.velocity.y = -5;
-    bird.jump();
+    if (bird.isAlive) {
+      bird.jump();
+    }
   }
   if (event.code === "KeyM") {
     console.log("M");

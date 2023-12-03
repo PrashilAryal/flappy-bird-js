@@ -14,11 +14,16 @@ class Bird {
       y: 1,
     };
     this.acceleration = 0.2;
+    this.isAlive = true;
+
+    this.img = new Image();
+    this.img.src = "./images/birdWingsUp.png ";
   }
 
   draw() {
     c.fillStyle = "red";
-    c.fillRect(
+    c.drawImage(
+      this.img,
       this.position.x,
       this.position.y,
       this.size.width,
@@ -32,6 +37,10 @@ class Bird {
   }
 
   jump() {
+    this.img.src = "./images/birdWingsDown.png";
+    setTimeout(() => {
+      this.img.src = "./images/birdWingsUp.png";
+    }, 300);
     this.velocity.y = -4;
   }
 
@@ -46,7 +55,9 @@ class Bird {
 
   update() {
     this.draw();
-    this.move();
+    if (this.isAlive) {
+      this.move();
+    }
     this.borderCollision();
   }
 }
