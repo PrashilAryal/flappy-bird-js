@@ -8,42 +8,42 @@
   </head>
   <body>
     <div class="container">
-      <div class="menu">
-        <h1>Menu</h1>
-        <div class="menu__container">
-          <!-- <h2>Setting</h2> -->
-          <div class="main__menu">
-            <button>Start</button>
-            <button>Settings</button>
-            <button>Controls</button>
-            <button>Exit</button>
-          </div>
-          <!-- <div class="main__menu--settings">
-            <h2>Sound</h2>
-            <div class="settings">
-              <p>Background</p>
-              <button class="btn-on">On</button>
-            </div>
-            <div class="settings">
-              <p>Collision</p>
-              <button class="btn-off">Off</button>
-            </div>
-            <div class="settings">
-              <p>Score</p>
-              <button class="btn-on">On</button>
-            </div>
-            <button class="btn-common">Done</button>
-          </div> -->
-          <!-- <div class="main__menu--controls">
-            <h2>Game Controls</h2>
-            <div class="controls">
-              <p>Press Space key to fly the bird</p>
-            </div>
-            <button class="btn-common">Got it!</button>
-          </div> -->
+      <div class="menu" id="menuModal">
+        <h1>Flappy Bird</h1>
+        <!-- <div class="menu__container" id="menuModal"> -->
+        <h2>MENU</h2>
+        <div class="main__menu" id="mainMenuModal">
+          <button id="startButton">Start</button>
+          <button id="settingsButton">Settings</button>
+          <button id="controlsButton">Controls</button>
+          <button>Exit</button>
         </div>
+        <div class="main__menu--settings" id="menuSettingsModal">
+          <h2>Sound</h2>
+          <div class="settings">
+            <p>Background</p>
+            <button class="btn-on">On</button>
+          </div>
+          <div class="settings">
+            <p>Collision</p>
+            <button class="btn-off">Off</button>
+          </div>
+          <div class="settings">
+            <p>Score</p>
+            <button class="btn-on">On</button>
+          </div>
+          <button class="btn-common" id="settingsOkButton">Done</button>
+        </div>
+        <div class="main__menu--controls" id="menuControlsModal">
+          <h2>Game Controls</h2>
+          <div class="controls">
+            <p>Press Space key to fly the bird</p>
+          </div>
+          <button class="btn-common" id="controlsOkButton">Got it!</button>
+        </div>
+        <!-- </div> -->
       </div>
-      <div class="gameOverMenu">
+      <div class="gameOverMenu" id="gameOverModal">
         <div class="gameOver__content">
           <h1>Game Over</h1>
           <p>100</p>
@@ -58,6 +58,7 @@
       <canvas width="500" height="500" id="canvas"></canvas>
     </div>
 
+    <script src="menu.js"></script>
     <script src="background.js"></script>
     <script src="pipe.js"></script>
     <script src="bird.js"></script>

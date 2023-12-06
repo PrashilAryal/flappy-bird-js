@@ -1,18 +1,30 @@
 const canvas = document.getElementById("canvas");
 const c = canvas.getContext("2d");
 
-const background = new Background(0, 0, "blue");
-const background2 = new Background(canvas.width, 0, "yellow");
-const bird = new Bird();
-const pipe = new Pipe();
+let background2;
+let background;
+let bird;
+let pipe;
 
-const allPipes = [];
-let gameScore = 0;
+let allPipes;
+let gameScore;
 
-const gameInterval = setInterval(() => {
-  // allPipes = push(new Pipe());
-  gameScore++;
-}, 1000);
+let gameInterval;
+
+function init() {
+  background = new Background(0, 0, "blue");
+  background2 = new Background(canvas.width, 0, "yellow");
+  bird = new Bird();
+  pipe = new Pipe();
+
+  allPipes = [];
+  gameScore = 0;
+
+  gameInterval = setInterval(() => {
+    // allPipes = push(new Pipe());
+    gameScore++;
+  }, 1000);
+}
 
 function animate() {
   c.clearRect(0, 0, canvas.width, canvas.height);
@@ -28,14 +40,15 @@ function animate() {
 
   if (!bird.isAlive) {
     clearInterval(gameInterval);
+    gameOverModal.style.display = "flex";
+    // menuModal.style.display = "none";
   }
-  // window.requestAnimationFrame(animate);
+  window.requestAnimationFrame(animate);
 }
-animate();
+// animate();
 
 document.addEventListener("keydown", (event) => {
   if (event.code === "Space") {
-    // bird.velocity.y = -5;
     if (bird.isAlive) {
       bird.jump();
     }
@@ -44,11 +57,3 @@ document.addEventListener("keydown", (event) => {
     console.log("M");
   }
 });
-// document.addEventListener("keyup", (event) => {
-//   if (event.code === "Space") {
-//     bird.velocity.y = 1;
-//   }
-//   if (event.code === "KeyM") {
-//     console.log("M");
-//   }
-// });

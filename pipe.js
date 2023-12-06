@@ -1,7 +1,7 @@
 class Pipe {
   constructor() {
     this.position = {
-      x: 0,
+      x: 100,
       y: 0,
     };
     this.size = {
