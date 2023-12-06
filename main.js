@@ -29,7 +29,7 @@ function animate() {
   if (!bird.isAlive) {
     clearInterval(gameInterval);
   }
-  window.requestAnimationFrame(animate);
+  // window.requestAnimationFrame(animate);
 }
 animate();
 
