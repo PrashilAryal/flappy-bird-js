@@ -28,6 +28,8 @@ function init() {
     // allPipes = push(new Pipe());
     gameScore++;
   }, 1000);
+
+  playBackgroundSound();
 }
 
 function animate() {
@@ -47,6 +49,7 @@ function animate() {
     gameScoreValue.innerHTML = gameScore;
     clearInterval(gameInterval);
     window.cancelAnimationFrame(gameLoop);
+    bgSound.pause();
     gameOverModal.style.display = "flex";
     // menuModal.style.display = "none";
   } else {
@@ -59,6 +62,7 @@ document.addEventListener("keydown", (event) => {
   if (event.code === "Space") {
     if (bird.isAlive) {
       bird.jump();
+      // playWingSound();
     }
   }
   if (event.code === "KeyM") {

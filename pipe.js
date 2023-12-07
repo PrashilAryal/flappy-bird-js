@@ -55,6 +55,7 @@ class Pipe {
     ) {
       console.log("collision: UP");
       bird.isAlive = false;
+      playCollisionSound();
     }
 
     // Pipe Below
@@ -68,6 +69,7 @@ class Pipe {
     ) {
       console.log("collision: DOWN");
       bird.isAlive = false;
+      playCollisionSound();
     }
   }
   update() {

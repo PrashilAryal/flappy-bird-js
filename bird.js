@@ -38,6 +38,7 @@ class Bird {
 
   jump() {
     this.img.src = "./images/birdWingsDown.png";
+    playWingSound();
     setTimeout(() => {
       this.img.src = "./images/birdWingsUp.png";
     }, 300);
