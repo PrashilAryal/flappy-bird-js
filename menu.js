@@ -52,3 +52,22 @@ controlsOkButton.addEventListener("click", () => {
   menuSettingsModal.style.display = "none";
   gameOverModal.style.display = "none";
 });
+
+homeButton.addEventListener("click", () => {
+  bird.isAlive = true;
+  gameOverModal.style.display = "none";
+  menuModal.style.display = "flex";
+  mainMenuModal.style.display = "flex";
+  menuControlsModal.style.display = "none";
+  menuSettingsModal.style.display = "none";
+});
+
+restartButton.addEventListener("click", () => {
+  menuModal.style.display = "none";
+  mainMenuModal.style.display = "none";
+  menuControlsModal.style.display = "none";
+  menuSettingsModal.style.display = "none";
+  gameOverModal.style.display = "none";
+  init();
+  animate();
+});

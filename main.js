@@ -1,6 +1,8 @@
 const canvas = document.getElementById("canvas");
 const c = canvas.getContext("2d");
 
+let gameScoreValue = document.getElementById("gameScoreValue");
+
 let background2;
 let background;
 let bird;
@@ -10,6 +12,8 @@ let allPipes;
 let gameScore;
 
 let gameInterval;
+let gameLoop;
+// const cancelAnimationFrame = window.cancelAnimationFrame;
 
 function init() {
   background = new Background(0, 0, "blue");
@@ -39,11 +43,15 @@ function animate() {
   c.fillText(gameScore, 10, 40);
 
   if (!bird.isAlive) {
+    // gameScoreValue = gameScore;
+    gameScoreValue.innerHTML = gameScore;
     clearInterval(gameInterval);
+    window.cancelAnimationFrame(gameLoop);
     gameOverModal.style.display = "flex";
     // menuModal.style.display = "none";
+  } else {
+    gameLoop = window.requestAnimationFrame(animate);
   }
-  window.requestAnimationFrame(animate);
 }
 // animate();
 

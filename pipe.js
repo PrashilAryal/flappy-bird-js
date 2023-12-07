@@ -75,7 +75,7 @@ class Pipe {
     this.drawPipeBelow();
     if (bird.isAlive) {
       this.move();
+      this.collisionWithBird();
     }
-    this.collisionWithBird();
   }
 }

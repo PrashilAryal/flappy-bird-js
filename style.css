@@ -132,7 +132,7 @@ canvas {
 }
 .main__menu--controls h2 {
   margin-top: 0px;
-  border-bottom: 1px solid gainsboro;
+  /* border-bottom: 1px solid gainsboro; */
 }
 .main__menu--controls .controls {
   font-size: 20px;
